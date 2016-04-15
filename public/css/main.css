@@ -1,0 +1,138 @@
+::-webkit-scrollbar {
+width: 10px;
+}
+::-webkit-scrollbar-track {
+/*-webkit-box-shadow: inset 0 0 6px rgba(100,100,100,1);*/
+background-color: rgba(200,200,200,1);
+border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+border-radius: 10px;
+background-color: rgba(150,150,150,1);
+/*-webkit-box-shadow: inset 0 0 6px rgba(100,100,100,1);*/
+}
+
+.fondoLogin{
+	background:  linear-gradient(180deg, rgba(255,255,255,0) 60%, #fff),linear-gradient(70deg, #e0f1ff 32%, #fffae3);
+}
+
+.centrar{
+	text-align: center !important; 
+    display: block !important;
+}
+
+.entradas{
+	background: rgba(33, 150, 243, 0.6) !important;
+}
+.salidas{
+	background: rgba(244, 67, 54, 0.6) !important;
+}
+.disponibles{
+	background: rgba(76, 175, 80, 0.6) !important;
+}
+
+.entradas-content{
+	background: #2196F3 !important;
+}
+.salidas-content{
+	background: #F44336 !important;
+}
+.disponibles-content{
+	background: #4CAF50 !important;
+}
+
+
+.ui.table tr:first-child td{
+	border-top: 1px solid rgba(34,36,38,.1) !important; 
+}
+
+.h4-font{
+	font-weight: 100;
+}
+.rojo{
+	background-color: red !important;
+}
+.ui.inverted.menu.barra{
+	border-radius: 0 !important;
+}
+#icon-movil{
+	display: none;
+}
+.padding-right-campo{
+	padding-right: 0.5em !important;
+}
+.no-padding{
+	padding:0 !important;
+}
+.no-padding-left{
+	padding-left:0 !important;
+}
+.no-padding-right{
+	padding-right:0 !important;
+}
+.no-padding-top{
+	padding-top:0 !important;
+}
+.no-padding-bottom{
+	padding-bottom:0 !important;
+}
+.no-margin{
+	margin:0 !important;
+}
+.no-border-top{
+	border-top:none !important;
+}
+.no-margin-top{
+	margin-top: 0 !important;
+}
+.no-margin-left{
+	margin-left: 0 !important;
+}
+.no-margin-right{
+	margin-right: 0 !important;
+}
+.no-margin-bottom{
+	margin-bottom: 0 !important;
+}
+.ui.progress>.label{
+	text-align: left !important;
+}
+.bar-progress{
+	    padding-top: 4px !important;
+}
+.align-right{
+	text-align: right;
+}
+
+.padding-left20{
+	    padding-left: 35px !important;
+}
+.margin-acordion{
+	margin:1.21425em 0 0 1em !important;
+}
+
+ .fondoBlanco
+{
+background: white !important;
+}
+@media only screen and (max-width : 992px) {
+ 	/*.ui.left.sidebar {
+	    -webkit-transform: translate3d(-100%,0,0) !important;
+	    transform: translate3d(-100%,0,0) !important;
+	}*/
+	#menu-left{
+		-webkit-transform: translate3d(-100%,0,0) ;
+	    transform: translate3d(-100%,0,0) ;
+	}
+	.ui.visible.left.sidebar~.fixed, .ui.visible.left.sidebar~.pusher {
+	     -webkit-transform: translate3d(0,0,0) !important; 
+	     transform: translate3d(0,0,0) !important; 
+	}
+	#icon-movil{
+		display: block;
+	}
+	#main-panel{
+		width: 100% !important;
+	}
+
+}
