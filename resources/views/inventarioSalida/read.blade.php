@@ -54,7 +54,22 @@
               <!-- <i class="file excel outline icon"></i> -->
               Pdf
             </div>
-           
+            </a>
+            <a href="{!!URL::to('/clientes/pdf')!!}" class="item">
+            <div class="item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACrklEQVQ4T3WT30taYRjHv68dyxm6NFSKVuky+w3zwjIIImo3mziIikIJuoyuhcbKi7rpdl2MQesPKKjudhfbLrqzFhIJ6nEuqWV0/LGmWXnenXOaTSd74OXhfc/7fM73+fES/LGZmRmaSqXAVDCFI8nn83lpFUylVl3ZbLYXc3NzX8QzUgxYW1sTt7SE8M9m/cM6bvO3V5SnjtnZ2c+k53WPFzKAT/L2rsau5xaL5SFk0DKIVlUrUukUCCGo1dZie2sb9n47drZ3rpTVypek7U0b7+pzlf10N7BLBswD1Ovwlnzb3NwkDMOA53lsbGzwxPHWwadzaVBKseRcwvzWPCpkFRhqGyIcx8Hd5UZNTQ2SyaTkE4kENBoNctc5uri4SCTApG0SKx9XcBg7hEwmw/KrZeTuckS4TN2dbimgEMglOGg1WmQyGXi93nvA6tQqxt+PI3uTRTAeRP/TfqgfqUl3fTcVFRibjYh8i0ieZVmYTCYcHx//BQR+BBA8D6K9vh2MjEH0Moqp3ilSma+UUihRIKSl1QoKfmXowsLCvQKX3YW7/J1UrKPTI/hjfnEeiPGxUVKg0+lwcXEh+Xg8Dr1eD+6Su1fQ6GnkRzpGyrqw/32fDJuHJUBnRyey2SyUSiXYCAuD3iAVfXp6mhD3O7feUG0A94k7FwfJH/BTjU4o2kUCpmYTTk9OYTabEWbDkDNyJJIJsGEWTqcTY2NjwnQUjbII8O37oFapkf6Zfsjd+sxKD74eIHYSQ8OTBoRDYYyOjv4H4PNRtVoApIsAVitEQDQSRYu5BYFAQAIIq1xBMBikdXV1ODs7Q1NTE6LRKBQKBfb29nCTu0GVogrX2Wv09vXC4/GUA0KhUFlBjUYjFd9CsYmjPDExUQoQWkTlcnnpzaIoMUic1IKJnfkNjVVKIwW8T6oAAAAASUVORK5CYII=">
+              <!-- <i class="file excel outline icon"></i> -->
+              Excel
+            </div>
+            </a>
+            </a>
+            <a href="{!!URL::to('/clientes/pdf')!!}" class="item">
+            <div class="item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACcUlEQVQ4T4VTS0wTURQ9Uz5FS8S0gZCQIgE/CcTExMSdC3e61BRc+QNEsCVE0xpYWRESCBW/QGmaiGlVMCYYF6xc+KkLsGr9UBNpIVKC2mpLKdDfzDzfdDpFAspMXu57mbnnnnvOfQzSj8l0LQqQPOn8r1hWVq7TaI71Sd8ZadPdc8t/5OjpQp7nwXI8OJ4gPzeJilIVeELA07O5/zYqq/by095pnU7XNCDkMk8dYbIQiSK0uIzgwgqNKwiGl8FzLHI4Pwbaa1LJArDF3AeNpgZT3mne7XZrW5rPm5nBUR/Zo1ZAxnBQbMlGLMEhEIpj1jePifcumDtPppIFEKulf01nXq9XyZjuTxE2CZQoGYyNB1FenIOJyQAO75dj/MNnWLtqRQa0DaEtCezxsA3Nzbpy5vLgJ1KgyMNrlx+/IgkkY2EUKuIwag/iys0RDJnOrUsWAB/arNDr9VXMxV4nURYo8NI5h3x5Al9mvqNbewDFRUq0mWxoN9SC0Orioj6lo/P5AxGgvsNBKndsR4kqC443X7G0tIhOgwbf5gJo7bmHR3daNnTUdtciAhxvfUY6GvchGmNTFQQL43EW8z9DuD70BF1tDWsqpxjQ992LYRHgUN1w0Od965ZnceqdFepSliqaWlT5om3ZuHFV+38Gq5PYO1vf0KienIls2LNUWdLB9WpEZLAKYCK1Z5vgpgC71Fs3m2hkNPgb4FRdY8ZnyXsh/g4nEIoIGqWdoEkfHRswOHGmIT224uBII5zZCzamh2ps1L6uBXobseltFBjn5MqpUzH2ksGwO6OB0WiU2e12lcfjUdF/ZJuKAESrqy/8+AM/DphMjuCD0wAAAABJRU5ErkJggg==">
+              <!-- <i class="file excel outline icon"></i> -->
+              Word
+            </div>
+            </a>
             <!-- <div class="item">
               <i class="comment icon"></i>
               Announcement
@@ -70,29 +85,17 @@
       </th>
     </tr>
     <tr>
-      <th>Cantidad</th>
-      <th>Elementos</th>
-      <th>Grupos</th>
-      <th>Dependencias</th>
-      <th>Valor Unitario</th>
-      <th>Valor Total</th>
-      <th>Donacion</th>
-      <th>Fecha Creacion</th>
+      <th>Producto</th>
+      <th>Disponible</th>
+      <th class="collapsing">Detalle</th>
     </tr>
   </thead>
   
     <tbody>
     @foreach ($inventarios as $inventario)
       <tr>
+        <td>{{ $inventario->nombre}}</td>
         <td>{{ $inventario->cantidad}}</td>
-        <td>{{ $inventario->nombreElemento}}</td>
-        <td>{{ $inventario->nombreGrupo}}</td>
-        <td>{{ $inventario->nombreDependencia}}</td>
-        <td>${{ $inventario->valorUnitario}}</td>
-        <td>${{ $inventario->valorTotal}}</td>
-        <td>{{ $inventario->donacion }}</td>
-        <td>{{ $inventario->created_at}}</td>
-
        
         
       </tr>

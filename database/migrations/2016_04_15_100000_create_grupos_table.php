@@ -13,11 +13,11 @@ class CreateGruposTable extends Migration
     public function up()
     {
         Schema::create('grupos', function (Blueprint $table) {
-              $table->increments('id');
+            $table->increments('id');
             $table->string('nombre')->index();
             $table->string('descripcion')->index();
             $table->integer('estado');
-            $table->timestamp('created_at');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +28,6 @@ class CreateGruposTable extends Migration
      */
     public function down()
     {
-        Schema::drop('password_resets');
+        Schema::drop('grupos');
     }
-}
+} 

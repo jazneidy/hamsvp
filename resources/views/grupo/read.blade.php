@@ -18,30 +18,28 @@
   <div class="ui breadcrumb">
     <a  href="{!!URL::to('/inicio')!!}" class="section">Inicio</a>
     <i class="right angle icon divider"></i>
-    <div class="active section">Productos</div>
+    <div class="active section">grupos</div>
   </div>
 
   <div class="ui divider"></div>
   <h2 class="ui center aligned icon header">
-
-    Productos
+    <i class="circular cubes icon"></i>
+    grupos
   </h2>
   <div class="ui divider"></div>
 
-   
+  
 
  <table class="ui striped celled selectable table " id="tableDataTable">
   <thead>
     <tr>
       <th colspan="12">
-        Listado de elementos
-        <a href="{!!URL::to('/elementos/create')!!}">
+        Listado de grupos
+        <a href="{!!URL::to('/grupos/create')!!}">
         <div class="ui right floated small addCliente primary labeled icon button greenBoton">
-          <i class="cubes icon"></i>Crear Elemento
+          <i class="cubes icon"></i>Crear Grupo
         </div>
         </a>
-
-
 
       </th>
     </tr>
@@ -55,17 +53,17 @@
   </thead>
   
     <tbody>
-    @foreach ($elementos as $elemento)
+    @foreach ($grupos as $grupo)
       <tr>
         <td>
-          {!! Html::decode(link_to_route('elementos.edit', '<i class="large write square icon"></i>',$elemento->id, null))!!}
+          {!! Html::decode(link_to_route('grupos.edit', '<i class="large write square icon"></i>',$grupo->id, null))!!}
         </td>
-        <td>{{ $elemento->nombre}}</td>
-        <td>{{ $elemento->descripcion}}</td>
+        <td>{{ $grupo->nombre}}</td>
+        <td>{{ $grupo->descripcion}}</td>
         
           <td>
-          @include('elementos.delete')
-          <a class="eli {{$elemento->id}}"> <i class="large trash outline icon" ></i></a>
+          @include('grupo.delete')
+          <a class="eli {{$grupo->id}}"> <i class="large trash outline icon" ></i></a>
         </td>
         
       </tr>

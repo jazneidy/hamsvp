@@ -12,12 +12,12 @@ class CreateDependenciasTable extends Migration
      */
     public function up()
     {
-        Schema::create('dependecia', function (Blueprint $table) {
+        Schema::create('dependencias', function (Blueprint $table) {
               $table->increments('id');
             $table->string('nombre')->index();
             $table->string('descripcion')->index();
             $table->integer('estado');
-            $table->timestamp('created_at');
+            $table->timestamps();
         });
     }
 

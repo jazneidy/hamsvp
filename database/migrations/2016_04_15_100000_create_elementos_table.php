@@ -17,7 +17,7 @@ class CreateElementosTable extends Migration
             $table->string('nombre')->index();
             $table->string('descripcion')->index();
             $table->integer('estado');
-            $table->timestamp();
+            $table->timestamps();
         });
     }
 

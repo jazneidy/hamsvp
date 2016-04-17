@@ -5,39 +5,31 @@ use Session;
 use Redirect;
 use Illuminate\Http\Request;
 use Deposito\Http\Requests;
-use Deposito\EntradaInventarioModel;
-use Deposito\ProductoModel;
+use Deposito\InventarioModel;
+use Deposito\ElementoModel;
+use Deposito\GrupoModel;
+use Deposito\DependenciaModel;
 
 
-class InventarioController extends Controller
+class InventariosController extends Controller
 {
     //
     /*
     */
 
     public function index(){
-    	$productosInventario= EntradaInventarioModel::Productos();
-        // echo var_dump($productosInventario);
-        // foreach ($productosInventario as  $inventario) {
-        //    return  EntradaInventarioModel::NombreProducto($inventario->producto_id);
-        //    return $inventario->producto_id;
-        //    // EntradaInventarioModel::NombreProducto($inventario->nombre);
-        // }
-         
-    	return view('inventario.read',compact('productosInventario'));
-
+    	$inventarios= InventarioModel::ListadoInventario();  
+    	return view('inventario.read',compact('inventarios'));
     }
 
     public function detalle(){
-             
         return view('inventario.detalle');
-
     }
 
     public function edit($id){
 
-        $entradas= EntradaInventarioModel::EntradasProductos($id);
-        $salidas = EntradaInventarioModel::SalidaProductos($id);
+        $entradas= InventarioModel::EntradasProductos($id);
+        $salidas = InventarioModel::SalidaProductos($id);
     
         $a = array();
          
@@ -55,14 +47,17 @@ class InventarioController extends Controller
         return view('inventario.detalle',['stocks'=>$stocks,'detalles'=>$detalles]);
       
 
-    	// $productosInventario= EntradaInventarioModel::find($id);
+    	// $inventario= EntradaInventarioModel::find($id);
         // $productos=ProductoModel::lists('nombre','id');
-    	// return view('inventario.edit',['productos'=>$productos,'productosInventario'=>$productosInventario]);
+    	// return view('inventario.edit',['productos'=>$productos,'inventario'=>$inventario]);
     }
 
     public function create(){
-        $productos=ProductoModel::lists('nombre','id');
-    	return view('inventario.create',compact('productos'));
+        $elementos=ElementoModel::lists('nombre','id');
+        $grupos=GrupoModel::lists('nombre','id');
+        $dependencias=DependenciaModel::lists('nombre','id');
+
+    	return view('inventario.create',compact(['elementos','grupos','dependencias']));
     }
 
 	public function destroy($id){
@@ -82,12 +77,26 @@ class InventarioController extends Controller
 
 
     public function store(Request $request){
-    	EntradaInventarioModel::create([
+        if($request['donacion'] == 0){
+            $donacion = 1;
+        }
+        if($request['donacion'] == NULL){
+            $donacion = 0;    
+        }
+        
+    	InventarioModel::create([
     		'cantidad'         =>$request['cantidad'],
     		'operacion'        =>1,
-    		'producto_id'      =>$request['producto_id']
+    		'elemento_id'      =>$request['elemento_id'],
+            'grupo_id'      =>$request['grupo_id'],
+            'dependencia_id'      =>$request['dependencia_id'],
+            'valorUnitario'    =>$request['valorUnitario'],
+            'valorTotal'        =>$request['valorTotal'],
+            'donacion'          =>$donacion
     	]);
 
-    	return redirect('/inventario')->with('mensaje','ingreso');
+    	return redirect('/inventarios')->with('mensaje','ingreso');
+
+        
     }
 }

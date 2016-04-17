@@ -17,18 +17,10 @@ class PdfClienteController extends Controller
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadHTML($view);
         //muestra el pdf
-        // return $pdf->stream('invoice');
+         return $pdf->stream('invoice');
         //descarga el pdf
-        return $pdf->download('clientes.pdf');
+        //return $pdf->download('clientes.pdf');
     }
 
-    public function getData(){
-        $data =  [
-            'quantity'      => '1' ,
-            'description'   => 'some ramdom text',
-            'price'   => '500',
-            'total'     => '500'
-        ];
-        return $data;
-    }
+   
 }

@@ -6,6 +6,10 @@ $(document).ready(function(){
         on    : 'click'
       });
 
+      $('.ui.checkbox')
+  .checkbox()
+;
+
 
     
 
@@ -86,37 +90,12 @@ $(document).ready(function(){
 
 
 
-$('#container').highcharts({
-        chart: {
-            type: 'bar'
-        },
-        title: {
-            text: 'Movimientos Productos'
-        },
-        xAxis: {
-            categories: ['Agua', 'Vino', 'Ron']
-        },
-        yAxis: {
-            title: {
-                text: 'Unidades'
-            }
-        },
-        series: [{
-            name: 'Salidas',
-            data: [1, 3, 4]
-        }, {
-            name: 'Entradas',
-            data: [5, 7, 6]
-        }]
-    });
-
-
 
       
 });
 window.onload = function(e){ 
   //busca el elemento con el query selector y remueve la clase "active"
-  if (document.querySelector("a.item.active")!=null) {
+  /*if (document.querySelector("a.item.active")!=null) {
     var ele=document.querySelector("a.item.active").classList.remove("active");
     //obtiene el elemento con con el nombre  que esta almacenado en el local storage
     //y le agrega la clase "ative"
@@ -125,6 +104,31 @@ window.onload = function(e){
   }else{
     document.getElementById(localStorage.getItem("idItem")).classList.add("active");
     localStorage.removeItem("idItem");
-  }
+  }*/
+  $('#cantidad').on('input', function(e) {
+    var total=getValorTotal();
+        $("#valorTotal").val(total);
+  });
+
+  $('#valorUnitario').on('input', function(e) {
+    var total=getValorTotal();
+        $("#valorTotal").val(total);
+  });
 }
 
+function isNumber(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+function getValorTotal(){
+  var cantidad = $("#cantidad").val();
+  var valorUnitario = $("#valorUnitario").val()
+
+  if(isNumber(cantidad)&&  isNumber(valorUnitario)){
+
+    return parseInt(cantidad) * parseFloat(valorUnitario);
+  }else{
+    return 0;
+  }
+  
+}

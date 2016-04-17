@@ -11,23 +11,6 @@
 |
 */
 
-
-//Route::resource('cliente','FrontController@cliente');
-//Route::resource('credito','FrontController@credito');
-
-// Route::resource('cliente','ClienteController');
-/*
-Route::resource('cliente','ClienteController');
-
-Route::get('prueba', function () {
-    return "hola sebastian";
-});
-
-Route::get('/', function () {
-    return view('welcome');
-});
-*/
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -45,8 +28,14 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/','FrontController@index');
 	Route::get('/inicio','FrontController@inicio');
 	Route::resource('/login','LoginController');
-	
+	Route::resource('usuario','UsuarioController');
 	Route::resource('elementos','ElementosController');
+	Route::resource('grupos','GruposController');
+	Route::resource('dependencias','DependenciasController');
+	Route::resource('inventarios','InventariosController');
+	Route::resource('inventarioSalida','InventarioSalidaController');
+	
+	//Route::resource('inventario/detalle','InventarioController@detalle');
 
 	// Route::resource('/mail','MailController');
 	// Route::resource('/recuperacion','MailController@index');

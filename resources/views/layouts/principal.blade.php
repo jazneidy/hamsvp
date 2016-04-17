@@ -26,9 +26,11 @@
 <body>
    
           
-              <div id="menu-left" class="ui visible inverted left vertical sidebar menu ">
+              <div id="menu-left" class="ui visible  left vertical  sidebar green menu ">
                 
-                <div class="ui fluid inverted vertical accordion menu">
+
+
+                <div class="ui fluid  vertical accordion green menu menuBlanco">
                 <a href="{!!URL::to('/inicio')!!}" class="item" id="inicio">
                    <div class="ui grid">
                         <div class="row">
@@ -41,27 +43,16 @@
                         </div>
                      </div>
                    </a>
-                  <a href="{!!URL::to('/cliente')!!}" class="item" id="cliente">
-                   <div class="ui grid">
-                        <div class="row">
-                           <div class="one wide column">
-                              <i class="large users icon"></i>
-                           </div>
-                           <div class="ten wide column ">
-                              <h4 class="h4-font">Clientes</h4>
-                           </div>
-                        </div>
-                     </div>
-                   </a>
+                  
                    <div class="ui  divider hidden no-margin no-border-top"></div>
-                    <a href="{!!URL::to('/producto')!!}" class="item"  id="producto">
+                    <a href="{!!URL::to('/dependencias')!!}" class="item"  id="producto">
                      <div class="ui grid">
                         <div class="row">
                            <div class="one wide column">
                              <i class="large cubes icon"></i>
                            </div>
                            <div class="ten wide column ">
-                              <h4 class="h4-font">Productos</h4>
+                              <h4 class="h4-font">Dependencias</h4>
                            </div>
                         </div>
                      </div>
@@ -76,38 +67,23 @@
                                 <i class="large browser icon"></i>
                            </div>
                            <div class="ten wide column ">
+
                               <h4 class="h4-font">Inventario</h4>
                            </div>
                         </div>
                      </div>
                     </a>
                     <div class="content">
-                        <a href="{!!URL::to('/inventario/create')!!}" class="item "><h5 class="h4-font">Registro de Entrada</h5></a>
-                        <a  href="{!!URL::to('/inventario')!!}"class="item "><h5 class="h4-font">Ver Inventario</h5></a>
-                        <a class="item "><h5 class="h4-font">Subsection 1</h5></a>
+                        <a href="{!!URL::to('/inventarios/create')!!}" class="item "><h5 class="h4-font">Movimiento Positivo</h5></a>
+                       <a href="{!!URL::to('/inventarioSalida/create')!!}" class="item "><h5 class="h4-font">
+                       Movimiento Negativo<h5></a>
+                        <a  href="{!!URL::to('/inventarioSalida/create')!!}"class="item "><h5 class="h4-font">Mostrar Inventario </h5></a>
+                       
                     </div>
+
                   </div>
                   <div class="ui divider hidden no-margin no-border-top"></div>
-                   <div class="item">
-                    <a class="title">
-                      <i class="dropdown icon margin-acordion"></i>
-                      <div class="ui grid">
-                        <div class="row">
-                           <div class="one wide column">
-                                <i class="large add to cart icon"></i>
-                           </div>
-                           <div class="ten wide column ">
-                              <h4 class="h4-font">Ventas</h4>
-                           </div>
-                        </div>
-                     </div>
-                    </a>
-                    <div class="content">
-                        <a class="item "><h5 class="h4-font">Realizar Venta</h5></a>
-                        <a class="item "><h5 class="h4-font">Listado de Ventas</h5></a>
-                        <a class="item "><h5 class="h4-font">Subsection 1</h5></a>
-                    </div>
-                  </div>
+                
                    <div class="ui divider hidden no-margin no-border-top"></div>
                     
                   <a class="item" href="{!!URL::to('/usuario')!!}">
@@ -123,14 +99,14 @@
                      </div>
                    </a>
 
-                    <a class="item">
+                    <a href="{!!URL::to('/grupos')!!}" class="item">
                      <div class="ui grid">
                         <div class="row">
                            <div class="one wide column">
-                              <i class="large payment icon"></i>
+                              <i class="large block layout icon"></i>
                            </div>
                            <div class="ten wide column ">
-                              <h4 class="h4-font">Creditos</h4>
+                              <h4 class="h4-font">Grupos</h4>
                            </div>
                         </div>
                      </div>
@@ -140,7 +116,7 @@
                      <div class="ui grid">
                         <div class="row">
                            <div class="one wide column">
-                              <i class="large bar chart icon"></i>
+                              <i class="large settings icon"></i>
                            </div>
                            <div class="ten wide column ">
                               <h4 class="h4-font">Elementos</h4>
@@ -148,35 +124,17 @@
                         </div>
                      </div>
                    </a>
-                
-                   
-
-
-
-
-
-
-
                 </div>
               </div>
 
-
-
-
-
-
-             
               <div class="pusher">
                 <div class="ui inverted menu barra">
                 <div class="row">
                    <div class="column">
                       <i id="icon-movil" class="blue big sidebar icon movil"></i>
-                    </div>
-                  
+                    </div>  
                 </div>
-                    
                 </div>
-
                 <div class="ui basic segment" id="main-panel" style="width:78%">
                  
                  @yield('content')

@@ -4,29 +4,14 @@
  <div class="ui statistics">
   <div class="statistic">
     <div class="text value">
-      Deposito la Quinta <br>
-      S.A
+     Sistema de Gestión de Recursos  Financieros y activos fijos<br>
+    
     </div>
     <div class="label">
-      Sistema de administracion de ventas
+      Hogar Adulto Mayor San Vicente De Paul (Circasia)
     </div>
   </div>
   </div>
-
-<div class="ui two cards">
-  <div class="green card">
-    <div class="image">
-    <div id="container" ></div>
-    </div>
-  </div>
-
-  <div class="green card">
-    <div class="image">
-    <div id="container" ></div>
-    </div>
-  </div>
-  
-</div>
 
   
 @stop
