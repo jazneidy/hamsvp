@@ -3,16 +3,16 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Deposito\ClienteModel; 
+use Deposito\UsuarioModel; 
 use Deposito\ProductoModel;
 
 class ExampleTest extends TestCase
 {
 
     /**
-     *   Autor:Johan Sebastian Quintero
+     *   Autor:jazneidy vargas silva
      *   Versión: v1.0
-     *   Fecha: 08-04-2016 13:28
+     *   Fecha: 17-04-2016 13:28
      *   Descripción: Prueba unitaria de ingreso a la pagina principal
      *
      * @return void
@@ -24,9 +24,9 @@ class ExampleTest extends TestCase
     }
 
     /**
-     *   Autor:Johan Sebastian Quintero
+     * Autor:jazneidy vargas silva
      *   Versión: v1.0
-     *   Fecha: 12-04-2016 13:28
+     *   Fecha: 17-04-2016 13:28
      *   Descripción: Prueba unitaria de logueo del sistema
      *
      * @return void
@@ -35,73 +35,73 @@ class ExampleTest extends TestCase
     {
         $this->visit('/')
              ->see('Ingrese a tu cuenta')
-             ->type('sebastianext@gmail.com','#correo')
-             ->type('1234567','#clave')
+             ->type('admin@gmail.com','#correo')
+             ->type('000000','#clave')
              ->see('Error')
-             ->type('sebastianext@gmail.com','#correo')
-             ->type('123456','#clave');
+             ->type('admin@gmail.com','#correo')
+             ->type('000000','#clave');
     }
 
     
 
     /**
-     *   Autor:Johan Sebastian Quintero
+     *   Autor:jazneidy vargas silva
      *   Versión: v1.0
-     *   Fecha: 08-04-2016 13:28
-     *   Descripción: Prueba unitaria de registro de cliente
+     *   Fecha: 17-04-2016 13:28
+     *   Descripción: Prueba unitaria de registro de Usuario
      *
      * @return void
      */
-    public function testRegistrarCliente()
+    public function testRegistrarUsuario()
     {
         $this->visit('/inicio')
-             ->click('Clientes')
-             ->seePageIs('/cliente')
-             ->click('Crear Cliente')
-             ->seePageIs('/cliente/create')
-             ->type('1094941407','#cedula')
-             ->type('Johan Sebastian','#nombres')
-             ->type('Quintero Orozco','#apellidos')
-             ->type('Ciudadela el sol','#direccion')
-             ->type('3128049965','#telefono')
-             ->type('sebastianext@gmail.com','#correo')
+             ->click('Usuario')
+             ->seePageIs('/Usuario')
+             ->click('Crear Usuario')
+             ->seePageIs('/Usuario/create')
+             ->type('1075253021','#cedula')
+             ->type('jazneidy','#nombres')
+             ->type('vargas silva','#apellidos')
+             ->type('Providencia','#direccion')
+             ->type('3116439230','#telefono')
+             ->type('tutierra@hotmail.es','#correo')
              ->press('Aceptar')
              ->see('Accion Procesada!');        
     }
 
 
     /**
-     *   Autor:Johan Sebastian Quintero
+     *    Autor:jazneidy vargas silva
      *   Versión: v1.0
-     *   Fecha: 12-04-2016 13:28
-     *   Descripción: Prueba unitaria de actualizacion de cliente
+     *   Fecha: 17-04-2016 13:28
+     *   Descripción: Prueba unitaria de actualizacion de Usuario
      *
      * @return void
      */
-    public function testActualizarCliente()
+    public function testActualizarUsuario()
     {
 
-        $clientes= ClienteModel::All();
+        $Usuarios= UsuarioModel::All();
         $id=0;
-        foreach ($clientes as $cliente) {
-            // echo 'hola mundo: '.$cliente->id;
-           $id=$cliente->id;
+        foreach ($Usuarios as $Usuario) {
+            // echo 'hola mundo: '.$Usuario->id;
+           $id=$Usuario->id;
            break;
         }
-        $url='/cliente/'.$id.'/edit';
+        $url='/Usuario/'.$id.'/edit';
         // echo $url;
         $this->visit($url)
-             ->type('Alejandro prueba','#nombres')
+             ->type('jazneidy prueba','#nombres')
              ->press('Aceptar')
              ->see('Accion Procesada!');   
         
     }
 
     /**
-     *   Autor:Johan Sebastian Quintero
+     *    Autor:jazneidy vargas silva
      *   Versión: v1.0
-     *   Fecha: 08-04-2016 10:08
-     *   Descripción: Prueba unitaria de registro de cliente
+     *   Fecha: 17-04-2016 13:28
+     *   Descripción: Prueba unitaria de registro de Usuario
      *
      * @return void
      */
@@ -112,19 +112,16 @@ class ExampleTest extends TestCase
              ->seePageIs('/producto')
              ->click('Crear Producto')
              ->seePageIs('/producto/create')
-             ->type('Bebida','#nombre')
-             // ->type('1300','#compra')
-             // ->type('1500','#venta')
-             // ->type('50','#cantidad')
-             ->type('bebida energizante ','#descripcion')
+             ->type('mueble','#nombre')
+             ->type('mueble viejo ','#descripcion')
              ->press('Aceptar')
              ->see('Accion Procesada!');        
     }
 
     /**
-     *   Autor:Johan Sebastian Quintero
+     *   Autor:jazneidy vargas silva
      *   Versión: v1.0
-     *   Fecha: 12-04-2016 10:28
+     *   Fecha: 17-04-2016 13:30
      *   Descripción: Prueba unitaria de actualizacion de prducto
      *
      * @return void
@@ -149,10 +146,10 @@ class ExampleTest extends TestCase
     }
 
 
-    /**
-     *   Autor:Johan Sebastian Quintero
+    /** 
+     *   Autor:jazneidy vargas silva
      *   Versión: v1.0
-     *   Fecha: 08-04-2016 10:08
+     *   Fecha: 17-04-2016 13:40
      *   Descripción: Prueba unitaria de registro de entra de productos
      *
      * @return void

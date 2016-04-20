@@ -3,8 +3,9 @@
 @section('content')
  <div class="ui statistics">
   <div class="statistic">
+  
     <div class="text value">
-     Sistema de Gestión de Recursos  Financieros y activos fijos<br>
+      Sistema de Gestión de Recursos  Financieros y activos fijos<br>
     
     </div>
     <div class="label">
