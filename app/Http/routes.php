@@ -34,7 +34,8 @@ Route::group(['middleware' => ['web']], function () {
 	Route::resource('dependencias','DependenciasController');
 	Route::resource('inventarios','InventariosController');
 	Route::resource('inventarioSalida','InventarioSalidaController');
-	
+	Route::get('/getElementoById', 'InventarioSalidaController@getElementoById');
+	Route::resource('ClasesPUC','ClasesPUCController');
 	//Route::resource('inventario/detalle','InventarioController@detalle');
 
 	// Route::resource('/mail','MailController');

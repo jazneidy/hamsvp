@@ -9,7 +9,7 @@ class ElementoModel extends Model
     protected $table="elementos";
 
     protected $fillable = [
-        'nombre', 'descripcion'
+        'nombre', 'descripcion','id'
     ];
 
 }

@@ -127,6 +127,22 @@
                 </div>
               </div>
 
+
+                  <a href="{!!URL::to('/ClasesPUC')!!}" class="item" id="ClasesPUC">
+                     <div class="ui grid">
+                        <div class="row">
+                           <div class="one wide column">
+                              <i class="large settings icon"></i>
+                           </div>
+                           <div class="ten wide column ">
+                              <h4 class="h4-font">CLases</h4>
+                           </div>
+                        </div>
+                     </div>
+                   </a>
+                </div>
+              </div>
+
               <div class="pusher">
                 <div class="ui inverted menu barra">
                 <div class="row">

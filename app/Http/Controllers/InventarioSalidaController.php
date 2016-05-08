@@ -20,7 +20,7 @@ class InventarioSalidaController extends Controller
     public function index(){
     	// $inventarios= InventarioModel::all();     
     	// return view('inventario.read',compact('inventarios'));
-         $elementos=ElementoModel::lists('nombre','id');
+        $elementos=ElementoModel::lists('nombre','id');
         $grupos=GrupoModel::lists('nombre','id');
         $dependencias=DependenciaModel::lists('nombre','id');
 
@@ -102,5 +102,14 @@ class InventarioSalidaController extends Controller
     	return redirect('/inventarios')->with('mensaje','ingreso');
 
         
+    }
+
+
+    public function getElementoById(Request $request){
+        if ($request->isMethod('get')){   
+            $data = $request->all();
+            $inventario= InventarioModel::where('elemento_id' , '=', $data['elemento'])->first();
+            return response()->json(['response' => var_dump($inventario) ]); 
+        }
     }
 }

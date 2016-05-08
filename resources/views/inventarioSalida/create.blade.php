@@ -9,10 +9,38 @@
   </div>
 
 	<h3 class="ui header">Movimiento Negativo</h3>
-{!! Form::open(['route'=>'inventarioSalida.store','method'=>'POST']) !!}
-    	@include('inventarioSalida.forms.inventarioSalida')
-      
-			{!! Form::submit('Aceptar',['class'=>'ui primary  button']) !!}
-{!! Form::close() !!}
-	
+
+
+	<select onchange="getInfoItem(this)">
+		@foreach ($elementos as $i=>$var)
+		 	<option value="{{ $i }}">{{ $var }}</option>
+		@endforeach	
+    </select>
+
+<script type="text/javascript">
+
+	function getInfoItem(val){
+		alert(val.value);
+		$.ajax({
+		      url: '/getElementoById',
+		      type: "get",
+		      data: {'elemento': val.value},
+		      success: function(data){
+		        alert("lleguge "+data['response']);
+isis = grupo
+
+		      },
+		      error: function(data){
+		        alert("error "+data);
+		      }
+		    });   
+
+		
+	}
+
+
+
+</script>
+
+
 @stop
