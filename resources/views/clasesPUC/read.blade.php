@@ -60,8 +60,8 @@
         <td>{{ $ClasesPUC->naturaleza}}</td>
         <td>{{ $ClasesPUC->beneficiario}}</td>
         <td>{{ $ClasesPUC->descripcion}}</td>
-        
          
+       
         
       </tr>
       @endforeach

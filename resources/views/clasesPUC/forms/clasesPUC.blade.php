@@ -53,9 +53,8 @@
 				    </div>
 		    </div>
 		  </div>
-
-    
 </div>
+
 <div class="ui hidden divider"></div>
 
 

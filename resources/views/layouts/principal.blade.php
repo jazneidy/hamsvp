@@ -124,11 +124,8 @@
                         </div>
                      </div>
                    </a>
-                </div>
-              </div>
 
-
-                  <a href="{!!URL::to('/ClasesPUC')!!}" class="item" id="ClasesPUC">
+                   <a href="{!!URL::to('/ClasesPUC')!!}" class="item" id="ClasesPUC">
                      <div class="ui grid">
                         <div class="row">
                            <div class="one wide column">
@@ -140,6 +137,22 @@
                         </div>
                      </div>
                    </a>
+
+                    <a href="{!!URL::to('/documento')!!}" class="item" id="documento">
+                     <div class="ui grid">
+                        <div class="row">
+                           <div class="one wide column">
+                              <i class="large settings icon"></i>
+                           </div>
+                           <div class="ten wide column ">
+                              <h4 class="h4-font">Documentos</h4>
+                           </div>
+                        </div>
+                     </div>
+                   </a>
+                </div>
+              </div>
+
                 </div>
               </div>
 
@@ -157,7 +170,9 @@
 
                 </div>
               </div>
-            
+           
+                </div>
+              </div>
 
             <!-- ***************************Files Javascript*********************************** -->
   {!!Html::script('https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')!!}
