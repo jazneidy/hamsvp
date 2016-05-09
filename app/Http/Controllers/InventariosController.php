@@ -77,13 +77,30 @@ class InventariosController extends Controller
 
 
     public function store(Request $request){
-        if($request['donacion'] == 0){
-            $donacion = 1;
+        if($request['donacion'] == 'Compra'){
+            $donacion = 0;
         }
-        if($request['donacion'] == NULL){
-            $donacion = 0;    
+        if($request['donacion'] == 'Donacion'){
+            $donacion = 1;    
         }
+         
+        if($request['donacion'] == 'Comodato'){
+            $donacion = 2;    
+        }
+
+         if($request['estado'] == 'Bueno'){
+            $estado = 0;
+        }
+        if($request['estado'] == 'Regular'){
+            $estado = 1;    
+        }
+         
+        if($request['estado'] == 'Malo'){
+            $estado = 2;    
+        }
+
         
+
     	InventarioModel::create([
     		'cantidad'         =>$request['cantidad'],
     		'operacion'        =>1,
@@ -92,7 +109,9 @@ class InventariosController extends Controller
             'dependencia_id'      =>$request['dependencia_id'],
             'valorUnitario'    =>$request['valorUnitario'],
             'valorTotal'        =>$request['valorTotal'],
-            'donacion'          =>$donacion
+            'donacion'          =>$donacion,
+             'estado'           =>$estado
+            
     	]);
 
     	return redirect('/inventarios')->with('mensaje','ingreso');

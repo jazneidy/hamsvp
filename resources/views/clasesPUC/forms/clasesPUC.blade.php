@@ -53,6 +53,15 @@
 				    </div>
 		    </div>
 		  </div>
+
+		   <div class="fields">
+		    <div class="field fourteen wide padding-right-campo">
+			      <label>Valor</label>
+				    <div class="ui corner labeled input">
+				      {!! Form::textarea('valor',null,[ 'size' => '10x2','id'=>'valor']) !!}
+				    </div>
+		    </div>
+		  </div>
 </div>
 
 <div class="ui hidden divider"></div>

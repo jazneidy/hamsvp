@@ -66,7 +66,8 @@ class ClasesPUCController extends Controller
             'nombreCuenta'=>$request['nombreCuenta'],
             'naturaleza'  =>$request['naturaleza'],
             'beneficiario'=>$request['beneficiario'],
-            'descripcion' =>$request['descripcion']
+            'descripcion' =>$request['descripcion'],
+            'valor'       =>$request['valor']
     	]);
 
     	return redirect('/ClasesPUC')->with('mensaje','ingreso');

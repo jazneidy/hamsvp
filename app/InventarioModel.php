@@ -10,7 +10,7 @@ class InventarioModel extends Model
     protected $table="inventarios";
 
     protected $fillable = [
-        'cantidad', 'elemento_id', 'grupo_id','dependencia_id','valorUnitario','valorTotal','donacion'
+        'cantidad', 'elemento_id', 'grupo_id','dependencia_id','valorUnitario','valorTotal','donacion','estado'
     ];
 
 
@@ -19,7 +19,8 @@ class InventarioModel extends Model
 			->join('elementos','elementos.id','=','inventarios.elemento_id')
 			->join('grupos','grupos.id','=','inventarios.grupo_id')
 			->join('dependencias','dependencias.id','=','inventarios.dependencia_id')
-			->select('inventarios.cantidad','elementos.nombre as nombreElemento','grupos.nombre as nombreGrupo','dependencias.nombre as nombreDependencia','inventarios.valorUnitario','inventarios.valorTotal','inventarios.created_at','donacion')
+			->select('inventarios.cantidad','elementos.nombre as nombreElemento','grupos.nombre as nombreGrupo','dependencias.nombre as nombreDependencia','inventarios.valorUnitario','inventarios.valorTotal',
+                'inventarios.created_at','donacion')
             ->get();
 	}
 

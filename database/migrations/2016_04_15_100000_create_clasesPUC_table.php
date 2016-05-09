@@ -19,6 +19,7 @@ class CreateClasesPUCTable extends Migration
             $table->string('naturaleza')->index();
             $table->string('beneficiario')->index();
             $table->string('descripcion')->index();
+            $table->double('valor', 15, 2);
             $table->timestamps();
         });
     }

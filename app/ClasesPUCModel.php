@@ -9,7 +9,7 @@ class ClasesPUCModel extends Model
     protected $table="ClasesPUC";
 
     protected $fillable = [
-         'codigo','nombreCuenta','naturaleza','beneficiario','descripcion'
+         'codigo','nombreCuenta','naturaleza','beneficiario','descripcion','valor'
     ];
 
 }

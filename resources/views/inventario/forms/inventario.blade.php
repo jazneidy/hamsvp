@@ -58,10 +58,31 @@
 				    </div>
 			  	</div>
 
-			  	<div class="ui checkbox">
-			  	{!! Form::checkbox('donacion', '0', false, ['id'=>'donacion'])!!}
-			      <label>Donacion</label>
-			    </div>
+			  
+         <div>
+		          <label>Adquision</label>
+                   <select   name = "donacion">
+                   <option   value="Compra">Compra</option>
+                   <option   value="Donacion">Donacion</option>
+                    <option   value="Comodato">Comodato</option>
+                   </select>
+
+	    </div>
+
+
+			  
+    <div>
+		          <label>Estado</label>
+                   <select   name = "estado">
+                   <option   value="Bueno">Bueno</option>
+                   <option   value="Regular">Regular</option>
+                    <option   value="Malo">Malo</option>
+                   </select>
+
+	    </div>
+ 
+ 
+
 		</div>
 	<script type="text/javascript">
 		

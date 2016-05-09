@@ -74,10 +74,10 @@
                      </div>
                     </a>
                     <div class="content">
-                        <a href="{!!URL::to('/inventarios/create')!!}" class="item "><h5 class="h4-font">Movimiento Positivo</h5></a>
-                       <a href="{!!URL::to('/inventarioSalida/create')!!}" class="item "><h5 class="h4-font">
-                       Movimiento Negativo<h5></a>
-                        <a  href="{!!URL::to('/inventarioSalida/create')!!}"class="item "><h5 class="h4-font">Mostrar Inventario </h5></a>
+                   <a href="{!!URL::to('/inventarios/create')!!}" class="item "><h5 class="h4-font">Movimiento Positivo</h5></a>
+                  <a href="{!!URL::to('/inventarioSalida/create')!!}" class="item "><h5 class="h4-font">
+                   Movimiento Negativo<h5></a>
+                   <a  href="{!!URL::to('/inventarioSalida/create')!!}"class="item "><h5 class="h4-font">Mostrar Inventario </h5></a>
                        
                     </div>
 
@@ -132,7 +132,7 @@
                               <i class="large settings icon"></i>
                            </div>
                            <div class="ten wide column ">
-                              <h4 class="h4-font">CLases</h4>
+                              <h4 class="h4-font">Cuentas</h4>
                            </div>
                         </div>
                      </div>
@@ -152,20 +152,17 @@
                    </a>
                 </div>
               </div>
-
-                </div>
+             </div>
               </div>
-
               <div class="pusher">
                 <div class="ui inverted menu barra">
-                <div class="row">
-                   <div class="column">
-                      <i id="icon-movil" class="blue big sidebar icon movil"></i>
-                    </div>  
+                 <div class="row">
+                  <div class="column">
+                    <i id="icon-movil" class="blue big sidebar icon movil"></i>
+                      </div>  
                 </div>
-                </div>
-                <div class="ui basic segment" id="main-panel" style="width:78%">
-                 
+               </div>
+              <div class="ui basic segment" id="main-panel" style="width:78%">               
                  @yield('content')
 
                 </div>
