@@ -9,7 +9,7 @@
     <div class="active section">Actualizar Usuarios</div>
   </div>
 	<h3 class="ui header">Actualizar Usuario</h3>
-
+ffff
 {!! Form::model($usuario,['route'=>['usuario.update',$usuario->id],'method'=>'PUT'])!!}
         	@include('usuario.forms.usuario')
 			{!! Form::submit('Aceptar',['class'=>'ui primary button']) !!}

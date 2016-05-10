@@ -12,4 +12,6 @@ class ElementoModel extends Model
         'nombre', 'descripcion','id'
     ];
 
+    
+
 }

@@ -190,11 +190,11 @@ function guardarData(  ){
  //console.log(debe);
    
         $.ajax({
-            url: '/guardarDocumento',
+            url: 'http://localhost/hamsvp-master/public/guardarDocumento',
             type: "get",
             data: {'data' :data,'debe':debe,'haber':haber,'tipo':typeDoc},
             success: function(data){ 
-              //console.log(data);
+              console.log(data);
             },
             error: function(data){
               console.log(data);

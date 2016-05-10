@@ -12,10 +12,11 @@ use Deposito\DocCuentaModel;
 
 class DocumentoController extends Controller
 {
-    //
-    /*
-    */
-
+     /**
+     * Metodo Index   muestra el listado de documentos
+     * @param  void
+     * @return view documento 
+     */
     public function index(){  
 
           $elementos=ClasesPUCModel::lists('nombreCuenta','codigo'); 
@@ -23,7 +24,11 @@ class DocumentoController extends Controller
     	return view('documento.create',compact(['elementos']));
 
     }
-
+     /**
+     * Metodo guardarDocumento  Permite guardar un documento
+     * @param  void
+     * @return view documento
+     */
     public function guardarDocumento(Request $request){
         if ($request->isMethod('get')){   
             $data = $request->all();
@@ -37,6 +42,7 @@ class DocumentoController extends Controller
             //}
 
             foreach ($request['data'] as $value) {
+
                 DocCuentaModel::create([
                     'codigoCuenta' =>$value[0],
                     'nombre_cuenta' =>$value[1],
@@ -56,9 +62,18 @@ class DocumentoController extends Controller
 
     }
 
-    public function edit($id){
+    public function listar(){
+        $elementos= DocumentoModel::All();
+       // die(var_dump($elementos));
+        return view('documento.listar',compact('elementos'));
+    }
+  
 
-         
+    public function edit($id){
+        
+        $elemento= DocCuentaModel::all(); 
+        
+        return view('documento.detalle',['elementos'=>$elemento]);
     }
 
     public function create(){

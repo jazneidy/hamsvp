@@ -19,48 +19,35 @@
 				    </div>
 			  	</div>
 
-			    <div class="three fields">
+			   <div class="three fields">
 				    <div class="field">
 					      <label>Vida Util</label>
-						    <div class="ui left icon corner labeled input">
-						  
-						     {!! Form::text('vidaUtil',null,['placeholder'=>'','id'=>'vidaUtil']) !!}
-						      
+						    <div class="ui corner labeled input">
+						      {!! Form::text('vidaUtil',null,['placeholder'=>'','id'=>'vidaUtil'] ) !!}
 						    </div>
 				    </div>
 			  	</div>
 
-			    <div class="three fields">
-				     <div class="field ">
-					      <label>Depreciasion</label>
-						    <div class="ui left icon corner labeled input">
-						    <i class="dollar icon"></i>
-						     {!! Form::text('descripcion',null,['placeholder'=>'','id'=>'valorTotal']) !!}
-						      
+			   <div class="three fields">
+				    <div class="field">
+					      <label>Depreciación</label>
+						    <div class="ui corner labeled input">
+						      {!! Form::text('depreciacion',null,['placeholder'=>'','id'=>'depreciacion'] ) !!}
 						    </div>
 				    </div>
-			  	</div>
+			  	</div
 
 			  	  <div class="three fields">
 				     <div class="field ">
 					      <label>Descripcion</label>
 						    <div class="ui left icon corner labeled input">
-						    <
+						    
 						     {!! Form::text('descripcion',null,['placeholder'=>'','id'=>'descripcion']) !!}
 						      
 						    </div>
 				    </div>
-			  	</div
+			  	</div>
 
-	
-
-			  
-   
- 
-
-		</div>
-	<script type="text/javascript">
-		
-	</script>
-	<div class="ui hidden divider"></div>
+   		</div>
+		<div class="ui hidden divider"></div>
                               

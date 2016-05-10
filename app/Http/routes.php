@@ -40,6 +40,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::resource('documento','DocumentoController');
 	Route::resource('ActivosFijos','ActivosFijosController');
 	Route::resource('/guardarDocumento','DocumentoController@guardarDocumento');
+	Route::resource('/listarDocumento','DocumentoController@listar');
 	//Route::resource('inventario/detalle','InventarioController@detalle');
 
 	// Route::resource('/mail','MailController');

@@ -15,7 +15,7 @@ class CreateActivosTable extends Migration
             Schema::create('activos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('elemento_id');
-            $table->integer('anosUso');
+            $table->integer('aniosUso');
             $table->integer('vidaUtil');
             $table->double('depreciacion', 15, 2);
             $table->string('descripcion');

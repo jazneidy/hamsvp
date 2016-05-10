@@ -138,18 +138,30 @@
                      </div>
                    </a>
 
-                    <a href="{!!URL::to('/documento')!!}" class="item" id="documento">
-                     <div class="ui grid">
-                        <div class="row">
-                           <div class="one wide column">
-                              <i class="large settings icon"></i>
-                           </div>
-                           <div class="ten wide column ">
-                              <h4 class="h4-font">Documentos</h4>
-                           </div>
-                        </div>
-                     </div>
-                   </a>
+
+                   <div class="ui  divider hidden no-margin no-border-top"></div>
+                     <div class="item">
+                      <a class="title">
+                        <i class="dropdown icon margin-acordion"></i>
+                        <div class="ui grid">
+                          <div class="row">
+                             <div class="one wide column">
+                                  <i class="large settings icon"></i>
+                             </div>
+                             <div class="ten wide column ">
+
+                                <h4 class="h4-font">Dcumento</h4>
+                             </div>
+                          </div>
+                       </div>
+                      </a>
+                      <div class="content">
+                        <a href="{!!URL::to('/documento')!!}" class="item "><h5 class="h4-font">Crear documento</h5></a>
+                        <a href="{!!URL::to('/listarDocumento')!!}" class="item "><h5 class="h4-font">listar documento</h5></a>
+                      </div> 
+                  </div>
+  
+
                 </div>
               </div>
              </div>

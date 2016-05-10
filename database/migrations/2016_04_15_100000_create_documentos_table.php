@@ -22,7 +22,7 @@ class CreateDocumentosTable extends Migration
         Schema::create('cuenta_doc', function (Blueprint $table) {
             $table->increments('id'); 
             $table->integer('codigoCuenta');
-            $table->integer('nombre_cuenta');
+            $table->String('nombre_cuenta');
             $table->double('debe', 15, 2);
             $table->double('haber', 15, 2);
             $table->String('beneficiario');
