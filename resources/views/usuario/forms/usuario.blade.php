@@ -26,8 +26,7 @@
 				    </div>
 		    </div>
 
-		    
-		    
+		    		    
 		  </div>
 
 		  <div class="three fields">
@@ -35,9 +34,7 @@
 			      <label>Contraseña</label>
 				    <div class="ui corner labeled input">
 				      {!! Form::password('password',['placeholder'=>'Contraseña','id'=>'password']) !!}
-				      <div class="ui obligatorio corner label">
-					  			<i class="asterisk icon"></i>
-							</div>
+				     
 				    </div>
 		    </div>
 		  </div>

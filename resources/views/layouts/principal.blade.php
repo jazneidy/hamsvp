@@ -24,8 +24,6 @@
 </head>
 
 <body>
-   
-          
               <div id="menu-left" class="ui visible  left vertical  sidebar green menu ">
                 
 
@@ -45,7 +43,7 @@
                    </a>
                   
                    <div class="ui  divider hidden no-margin no-border-top"></div>
-                    <a href="{!!URL::to('/dependencias')!!}" class="item"  id="producto">
+                    <a href="{!!URL::to('/dependencias')!!}" class="item"  id="dependencia">
                      <div class="ui grid">
                         <div class="row">
                            <div class="one wide column">
@@ -72,16 +70,18 @@
                            </div>
                         </div>
                      </div>
-                    </a>
+                     </a>
                     <div class="content">
-                   <a href="{!!URL::to('/inventarios/create')!!}" class="item "><h5 class="h4-font">Movimiento Positivo</h5></a>
-                  <a href="{!!URL::to('/inventarioSalida/create')!!}" class="item "><h5 class="h4-font">
-                   Movimiento Negativo<h5></a>
-                   <a  href="{!!URL::to('/inventarioSalida/create')!!}"class="item "><h5 class="h4-font">Mostrar Inventario </h5></a>
-                       
-                    </div>
-
-                  </div>
+                   <a href="{!!URL::to('/inventarios/create')!!}" class="item ">
+                      <h5 class="h4-font">Entrada</h5>
+                    </a>
+                   <a href="{!!URL::to('/inventarioSalida/create')!!}" class="item">
+                      <h5 class="h4-font">Salida</h5>
+                   </a>
+                    <a href="{!!URL::to('/inventarioSalida/create')!!}" class="item">
+                      <h5 class="h4-font">Mostrar Inventario</h5>
+                    </a>
+                     </div>
                   <div class="ui divider hidden no-margin no-border-top"></div>
                 
                    <div class="ui divider hidden no-margin no-border-top"></div>
@@ -94,6 +94,19 @@
                            </div>
                            <div class="ten wide column ">
                               <h4 class="h4-font">Usuarios</h4>
+                           </div>
+                        </div>
+                     </div>
+                   </a>
+
+                   <a class="item" href="{!!URL::to('/activosFijos')!!}">
+                     <div class="ui grid">
+                        <div class="row">
+                           <div class="one wide column">
+                              <i class="large user icon"></i>
+                           </div>
+                           <div class="ten wide column ">
+                              <h4 class="h4-font">Activos Fijos</h4>
                            </div>
                         </div>
                      </div>
@@ -138,6 +151,8 @@
                      </div>
                    </a>
 
+                   
+
 
                    <div class="ui  divider hidden no-margin no-border-top"></div>
                      <div class="item">
@@ -150,19 +165,17 @@
                              </div>
                              <div class="ten wide column ">
 
-                                <h4 class="h4-font">Dcumento</h4>
+                                <h4 class="h4-font">Documento</h4>
                              </div>
                           </div>
                        </div>
                       </a>
                       <div class="content">
                         <a href="{!!URL::to('/documento')!!}" class="item "><h5 class="h4-font">Crear documento</h5></a>
-                        <a href="{!!URL::to('/listarDocumento')!!}" class="item "><h5 class="h4-font">listar documento</h5></a>
+                        <a href="{!!URL::to('/listarDocumento')!!}" class="item "><h5 class="h4-font">listar documentos</h5></a>
                       </div> 
                   </div>
-  
-
-                </div>
+               </div>
               </div>
              </div>
               </div>

@@ -9,34 +9,69 @@
 
 	<h3 class="ui header">Movimiento Negativo</h3>
  
-	 
-	<select id="element" onchange="getInfoItem(this)" >
-		@foreach ($elementos as $i=>$var)
-		 	<option value="{{ $i }}">{{ $var }}</option>
-		@endforeach	
-    </select>
+	 <div class="ui form">
+               <div class="three fields">
+					<div class="field">
+					    <label>Elemento</label>
+					    <select id="element" onchange="getInfoItem(this)" >
+					    <option value="-1" selected>Seleccione</option>
+							@foreach ($elementos as $i=>$var)
+							 	<option value="{{ $i }}">{{ $var }}</option>
+							@endforeach	
+					    </select>
+				  	</div>	
+				  		
+			  </div>
+				  	<div class="three fields">
+				  	  <div class="field">
+					    <label>Grupo</label>
+					    <label id="group"></label>
+				  	</div>	
+				  		
+			  </div>
+			  
+			<div class="three fields">
+					 <div class="field">
+				      <label>Dependencia</label>
+					    <label id="dependencia"></label>
+				  	</div>	
+			</div>	
 
-    <div>
-    	<label>Grupo:</label>
-    	<label id="group"></label>
-    </div>
-    <div>
-    	<label>Dependencia</label>
-    	<label id="dependencia"></label>
-    </div>
-    <div>
-    	<label>cantidad</label>
-    	<label id="cantidad"></label>
-    </div>
-    <div>
-    	<label>Valor unitario</label>
-    	<label id="value"></label>
-    </div>
-    <div>
-    	<input id="descuento" type="text" name="descuento" disabled>
-    </div>
-    
-<button value="Submit" id="actionButton" onclick="getDescontarItem()" style="display:none">Submit</button>
+			<div class="three fields">
+				    <div class="field">
+					      <label>Valor Unitario</label>
+						    <div class="ui left icon corner labeled input">
+						    <i class="dollar icon"></i>
+						     <label id="value"></label>
+						    
+						    </div>
+				    </div>
+			  	</div>
+
+			    <div class="three fields">
+				    <div class="field">
+					      <label>Cantidad Actual</label>
+						    <div class="ui corner labeled input">
+						      <label id="cantidad"></label>
+						    </div>
+				    </div>
+			  	</div>
+
+			        <div class="three fields">
+				     <div class="field ">
+					      <label>Catidad Salida</label>
+						    <div class="ui left icon corner labeled input">
+						    <i class="dollar icon"></i>
+						     <input id="descuento" type="text" name="descuento" disabled>
+						      
+						    </div>
+				    </div>
+			  	</div>	
+	</div>	  
+	
+	<div class="ui hidden divider"></div>
+	
+<button value="Submit" id="actionButton" onclick="getDescontarItem()" style="display:none" class="ui primary  button">Aceptar</button>
 
 <script type="text/javascript">
 
@@ -50,7 +85,9 @@
 
 		      	console.log(data);
 		        $('#group').html(data['response']['grupo']['nombre']);
-		        $('#dependencia').html(data['response']['dependencia']['nombre']);
+		        if(data['response']['dependencia'] != null){
+		        	$('#dependencia').html(data['response']['dependencia']['nombre']);	
+		        }
 		        $('#cantidad').html(data['response']['inventario']['cantidad']);
 		        $('#value').html(data['response']['inventario']['valorUnitario']);
 		        //

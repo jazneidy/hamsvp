@@ -12,7 +12,7 @@
   <div class="actions">
     <!-- <div class="ui positive approve button aceptarEliminar">Aceptar</div> -->
 
-    {!! Form::open(['route'=>['ClasesPUC.destroy',$clasesPUC->id],'method'=>'DELETE']) !!}
+    {!! Form::open(['route'=>['ClasesPUC.destroy',$ClasesPUC->id],'method'=>'DELETE']) !!}
 		<button type="submit" class="ui positive approve button eliminar" >Aceptar</button>
     {!! Form::close() !!}
     <div class="ui negative cancel button cancelarEliminar">Cancelar</div>

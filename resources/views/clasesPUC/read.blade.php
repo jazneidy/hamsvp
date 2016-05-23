@@ -12,7 +12,6 @@
         <div>&nbsp; El registro se {{Session::get('mensaje')}} <b>correctamente</b>.</div>
       </div>
     @endif
-
   <div class="ui breadcrumb">
     <a  href="{!!URL::to('/inicio')!!}" class="section">Inicio</a>
     <i class="right angle icon divider"></i>
@@ -45,9 +44,9 @@
       <th>Naturaleza</th>
       <th>Berneficiario</th>
       <th>Descripcion</th> 
-      <th>Valor</th>         
+      <th>Valor</th>        
       <th class="collapsing">Eliminar</th>
-    </tr>
+     </tr>
   </thead>
   
     <tbody>
@@ -61,12 +60,16 @@
         <td>{{ $ClasesPUC->naturaleza}}</td>
         <td>{{ $ClasesPUC->beneficiario}}</td>
         <td>{{ $ClasesPUC->descripcion}}</td>
-        <th>Valor</th>    
-         
+        <td>{{ $ClasesPUC ->valor}}</td>    
        
-        
+
+        <td>
+          @include('clasesPUC.delete')
+          <a class="eli {{$ClasesPUC->id}}"> <i class="large trash outline icon" ></i></a>
+        </td>   
+            
       </tr>
-      @endforeach
+     @endforeach
     </tbody>
   
 </table>

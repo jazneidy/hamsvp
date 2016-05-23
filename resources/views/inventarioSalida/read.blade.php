@@ -1,10 +1,6 @@
 @extends('layouts.principal')
 
-
-
 @section('content')
-
-
 
   <div class="ui breadcrumb">
     <a  href="{!!URL::to('/inicio')!!}" class="section">Inicio</a>
@@ -37,7 +33,7 @@
         Listado de inventarios
         <a href="{!!URL::to('/inventario/create')!!}">
         <div class="ui right floated small addCliente primary labeled icon button">
-          <i class="cubes icon"></i>Moviemiento Positivo
+          <i class="cubes icon"></i>Movimiento Positivo
         </div>
         </a>
 

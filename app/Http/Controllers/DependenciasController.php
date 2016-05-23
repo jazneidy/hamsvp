@@ -3,6 +3,8 @@
 namespace Deposito\Http\Controllers;
 use Session;
 use Redirect;
+use Deposito\Http\Requests\DependenciaCreateRequest;
+use Deposito\Http\Requests\DependenciaUpdateRequest;
 use Illuminate\Http\Request;
 use Deposito\Http\Requests;
 use Deposito\DependenciaModel;
@@ -53,7 +55,7 @@ class dependenciasController extends Controller
 	 *  @param request  variable encargada que permite el acceso a toda la información.
 	 *  @return views  vista principal
 	 */
-    public function update($id,Request $request){
+    public function update($id,DependenciaUpdateRequest $request){
     	$dependecia= DependenciaModel::find($id);
     	$dependecia->fill($request->all());
     	$dependecia->save();
@@ -65,7 +67,7 @@ class dependenciasController extends Controller
 	 *  @param request  variable encargada que permite el acceso a toda la información.
 	 *  @return dependencia
 	 */
-    public function store(Request $request){
+    public function store(DependenciaCreateRequest $request){
     	DependenciaModel::create([
             'nombre'           =>$request['nombre'],
             'descripcion'      =>$request['descripcion']

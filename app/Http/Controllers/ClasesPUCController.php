@@ -4,6 +4,8 @@ namespace Deposito\Http\Controllers;
 use Session;
 use Redirect;
 use Illuminate\Http\Request;
+use Deposito\Http\Requests\CuentasCreateRequest;
+use Deposito\Http\Requests\CuentasUpdateRequest;
 use Deposito\Http\Requests;
 use Deposito\ClasesPUCModel;
 
@@ -47,14 +49,15 @@ class ClasesPUCController extends Controller
     	ClasesPUCModel::destroy($id);
     	Session::flash('mensaje','Elimino');
     	return Redirect::to('/ClasesPUC');
-    }
+
+            }
 	 /** 
 	 *  Metodo update con el cual se modifica la informacion de un registro.
 	 *  @param  id identificacion  del registro a actualizar.
 	 *  @param request  variable encargada que permite el acceso a toda la información.
 	 *  @return views  vista principal
 	 */	
-    public function update($id,Request $request){
+    public function update($id,CuentasUpdateRequest $request){
     	$ClasesPuc= ClasesPUCModel::find($id);
     	$ClasesPuc->fill($request->all());
     	$ClasesPuc->save();
@@ -66,7 +69,7 @@ class ClasesPUCController extends Controller
 	 *  @param equest  variable encargada que permite el acceso a toda la información.
 	 *  @return views  vista principal
 	 */
-    public function store(Request $request){
+    public function store(CuentasCreateRequest $request){
  
         if($request['naturaleza'] == 'Pasivo' ){
             $naturaleza = 1;

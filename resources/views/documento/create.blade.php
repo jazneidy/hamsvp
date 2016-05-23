@@ -20,7 +20,7 @@
 </style>
 <table id="tableDoc" class="tg">
   <tr>
-    <th class="tg-031e" >select codigo</th>
+    <th class="tg-031e" >Cuenta</th>
     <th class="tg-yw4l" >Codigo</th>
     <th class="tg-yw4l" >Cuenta</th>
     <th class="tg-yw4l" >Debi</th>
@@ -190,7 +190,7 @@ function guardarData(  ){
  //console.log(debe);
    
         $.ajax({
-            url: 'http://localhost/hamsvp-master/public/guardarDocumento',
+            url: '/guardarDocumento',
             type: "get",
             data: {'data' :data,'debe':debe,'haber':haber,'tipo':typeDoc},
             success: function(data){ 

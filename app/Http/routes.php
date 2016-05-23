@@ -38,9 +38,10 @@ Route::group(['middleware' => ['web']], function () {
 	Route::resource('ClasesPUC','ClasesPUCController');
 	Route::resource('/descontarElemento', 'InventarioSalidaController@descontarElemento');
 	Route::resource('documento','DocumentoController');
-	Route::resource('ActivosFijos','ActivosFijosController');
+	Route::resource('activosFijos','ActivosFijosController');
 	Route::resource('/guardarDocumento','DocumentoController@guardarDocumento');
 	Route::resource('/listarDocumento','DocumentoController@listar');
+	Route::resource('/infoDataElemento', 'ActivosFijosController@infoDataElemento');
 	//Route::resource('inventario/detalle','InventarioController@detalle');
 
 	// Route::resource('/mail','MailController');

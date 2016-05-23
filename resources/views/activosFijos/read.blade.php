@@ -31,7 +31,7 @@
     <tr>
       <th colspan="12">
          Activos Fijos
-        <a href="{!!URL::to('/ActivosFijos/create')!!}">
+        <a href="{!!URL::to('/activosFijos/create')!!}">
         <div class="ui right floated small addCliente primary labeled icon button greenBoton">
           <i class="cubes icon"></i>Crear Depreciasion
         </div>
@@ -54,7 +54,7 @@
     @foreach ($ActivosFijos as $ActivosFijos)
       <tr>
         <td>
-          {!! Html::decode(link_to_route('ActivosFijos.edit', '<i class="large write square icon"></i>',$ActivosFijos->id, null))!!}
+          {!! Html::decode(link_to_route('activosFijos.edit', '<i class="large write square icon"></i>',$ActivosFijos->id, null))!!}
         </td>
         <td>{{ $ActivosFijos->elemento_id}}</td>
         <td>{{ $ActivosFijos->anosUso}}</td>
@@ -62,7 +62,10 @@
         <td>{{ $ActivosFijos->depreciacion}}</td>
         <td>{{ $ActivosFijos->descripcion}}</td>
         
-         
+        <td>
+          @include('activosFijos.delete')
+          <a class="eli {{$ActivosFijos->id}}"> <i class="large trash outline icon" ></i></a>
+        </td>
               
       </tr>
       @endforeach

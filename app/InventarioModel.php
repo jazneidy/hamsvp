@@ -10,7 +10,7 @@ class InventarioModel extends Model
     protected $table="inventarios";
 
     protected $fillable = [
-        'cantidad', 'elemento_id', 'grupo_id','dependencia_id','valorUnitario','valorTotal','donacion','estado'
+ 'cantidad', 'elemento_id', 'grupo_id','dependencia_id','valorUnitario','valorTotal','donacion','estado','valorDepreciasion','ultimaDepreciacion'
     ];
 
 
@@ -19,11 +19,31 @@ class InventarioModel extends Model
 			->join('elementos','elementos.id','=','inventarios.elemento_id')
 			->join('grupos','grupos.id','=','inventarios.grupo_id')
 			->join('dependencias','dependencias.id','=','inventarios.dependencia_id')
-			->select('inventarios.cantidad','elementos.nombre as nombreElemento','grupos.nombre as nombreGrupo','dependencias.nombre as nombreDependencia','inventarios.valorUnitario','inventarios.valorTotal',
-                'inventarios.created_at','donacion')
+			->select('inventarios.id','inventarios.cantidad','elementos.nombre as nombreElemento','grupos.nombre as nombreGrupo','dependencias.nombre as nombreDependencia','inventarios.valorUnitario','inventarios.valorTotal','elementos.id as elementRef',
+                'inventarios.created_at','donacion','valorDepreciasion','ultimaDepreciacion')
             ->get();
 	}
 
+ public static function ListadoInventario2(){
+		return DB::table('inventarios')
+			->join('elementos','elementos.id','=','inventarios.elemento_id')
+			->join('grupos','grupos.id','=','inventarios.grupo_id')
+			->join('dependencias','dependencias.id','=','inventarios.dependencia_id')
+			->select('elementos.id','elementos.nombre as nombreElemento')
+            ->get();
+	}
+
+	public static function elementByCode($idElement){
+		return DB::table('inventarios')
+			->where('elemento_id','=', $idElement)
+            ->get();
+	}
+
+	public static function actualizarDepreciacion($resultado,$fechaDepreciacion,$idElement){
+		return DB::table('inventarios')
+            ->where('elemento_id','=', $idElement)
+            ->update(array('valorDepreciasion' => $resultado, 'ultimaDepreciacion' =>$fechaDepreciacion ));
+	}
 
 	// public static function ListadoInvetario(){
 	// 	return DB::table('inventarios')

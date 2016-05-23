@@ -1,7 +1,4 @@
 @extends('layouts.principal')
-
-
-
 @section('content')
 
 @if(Session::has('mensaje'))
@@ -18,13 +15,13 @@
   <div class="ui breadcrumb">
     <a  href="{!!URL::to('/inicio')!!}" class="section">Inicio</a>
     <i class="right angle icon divider"></i>
-    <div class="active section">grupos</div>
+    <div class="active section">Grupos</div>
   </div>
 
   <div class="ui divider"></div>
   <h2 class="ui center aligned icon header">
     <i class="circular cubes icon"></i>
-    grupos
+   Grupos
   </h2>
   <div class="ui divider"></div>
 
@@ -34,7 +31,7 @@
   <thead>
     <tr>
       <th colspan="12">
-        Listado de grupos
+        Listado De Grupos
         <a href="{!!URL::to('/grupos/create')!!}">
         <div class="ui right floated small addCliente primary labeled icon button greenBoton">
           <i class="cubes icon"></i>Crear Grupo

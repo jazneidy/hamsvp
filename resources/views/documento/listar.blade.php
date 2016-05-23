@@ -37,7 +37,7 @@
         <td>{{ $elemento->created_at}}</td>
         
           <td>
-          @include('elementos.delete')
+          @include('documento.delete')
           <a class="eli {{$elemento->id}}"> <i class="large trash outline icon" ></i></a>
         </td>
         

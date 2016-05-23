@@ -7,8 +7,11 @@ use Illuminate\Http\Request;
 use Deposito\Http\Requests;
 use Deposito\ActivosFijosModel;
 use Deposito\ElementoModel;
+use Deposito\ClasesPucModel;
 
-@author jazneidy Vargas Silva.
+use Deposito\InventarioModel;
+
+//@author jazneidy Vargas Silva.
 
 class ActivosFijosController extends Controller
 {
@@ -18,8 +21,8 @@ class ActivosFijosController extends Controller
      * @return view ActivosFijos
      */
     public function index(){
-    	$ActivosFijos= ActivosFijosModel::All();
-    	return view('ActivosFijos.read',compact('ActivosFijos'));
+    	$ActivosFijos= ActivosFijosModel::all();
+    	return view('activosFijos.read',compact('ActivosFijos'));
     }
     /**
      * @Metodo edit  mostrara el formulario de activos fijos para modificar un  registro.
@@ -28,28 +31,15 @@ class ActivosFijosController extends Controller
      */
 
     public function edit($id){
-    	$ActivosFijos= ActivosFijosModel::find($id);
-    	return view('ActivosFijos.edit',['ActivosFijos'=>$ActivosFijos]);
-
-
-
-        $valor= ActivosFijosModel::EntradasProductos($id);
-        $salidas = InventarioModel::SalidaProductos($id);
-    
-        $a = array();
+    	//$ActivosFijos= ActivosFijosModel::find($id);
+    	//return view('ActivosFijos.edit',['ActivosFijos'=>$ActivosFijos]);
+      
+        $elementos=ElementoModel::lists('nombre','id');
+        $inventario=inventarioModel::ListadoInventario();
+         $ActivosFijos= ActivosFijosModel::find($id);
          
-        foreach ($entradas as $entrada) {
-           $a['entradas']=$entrada->cantidad;
-        }
-        foreach ($salidas as $salida) {
-           $a['salidas'] = $salida->cantidad;
-        }
-       
-        $a['disponibles'] = $a['entradas']-$a['salidas'];
-        $stocks=json_encode($a);
-
-        $detalles=EntradaInventarioModel::DetallesProductos($id);
-        return view('inventario.detalle',['stocks'=>$stocks,'detalles'=>$detalles]);
+         return view('activosFijos.edit',['ActivosFijos'=>$ActivosFijos,'inventario'=>$inventario,
+            'elementos'=>$elementos]);
     }
 
     
@@ -61,7 +51,32 @@ class ActivosFijosController extends Controller
  */
     public function create(){
         $elementos=ElementoModel::lists('nombre','id');
-        return view('activosFijos.create',compact(['elementos']));
+      
+        //$inventario=inventarioModel::lists('valorUnitario','id');
+        //ListadoInventario
+        $inventario=inventarioModel::ListadoInventario();
+        //die(var_dump( $inventario));
+        $clasesPuc=ClasesPucModel::lists('nombreCuenta','id');
+
+        return view('activosFijos.create',compact(['elementos','inventario','clasesPuc']));
+    }
+
+
+     public function  infoDataElemento(Request $request){
+         if ($request->isMethod('get')){   
+            $data = $request->all();
+            $id= $data['elemento_id'];
+            $inventario=inventarioModel::ListadoInventario();
+            $response= $inventario;
+             
+            foreach ($inventario as $element) {
+              if ($element->elementRef==$id) {
+                $response = $element;
+              }
+            }
+            
+            return response()->json(['response' => $response ]); 
+        }
     }
 
 /** 
@@ -74,7 +89,7 @@ class ActivosFijosController extends Controller
 
     	ActivosFijosModel::destroy($id);
     	Session::flash('mensaje','Elimino');
-    	return Redirect::to('/ActivosFijos');
+    	return Redirect::to('/activosFijos');
     }
 
  /** 
@@ -84,12 +99,22 @@ class ActivosFijosController extends Controller
  *  @return views  vista principal
  */
 
+
+
+
+    public function depreciacion(){
+    
+          $elementos=ElementoModel::lists('nombre','id');
+          //$vidaUtil=ActivosFijosModel::
+
+    }
+
     public function update($id,Request $request){
     	$ActivosFijos= ActivosFijosModel::find($id);
     	$ActivosFijos->fill($request->all());
     	$ActivosFijos->save();
     	Session::flash('mensaje','edito');
-    	return Redirect::to('/ActivosFijos');
+    	return Redirect::to('/activosFijos');
     }
 
 
@@ -100,18 +125,39 @@ class ActivosFijosController extends Controller
  */
 
     public function store(Request $request){
- 
+   // die(var_dump($request->all()));
         
-    	    ActivosFijosModel::create([
+          //obtenemos el valor actual del elemento
+          $data = $request->all(); 
+          $idElemento =  $data['codeElement'];
+          $element = InventarioModel::elementByCode($idElemento);
+          //realizamos la resta del valor de depreciacion
+          $valorDepreciacion = 0;
+          $fechaDepreciacion =  $data['dateDepreciacion'];
+          foreach ($element as $entrada) {  
+            if ($entrada->valorDepreciasion == NULL ) {
+              $valorDepreciacion = $entrada->valorUnitario;
+            } else {
+              $valorDepreciacion = $entrada->valorDepreciasion;
+            }  
+          }
+          
+          $resultado =  $valorDepreciacion - $request['depreciacion'];
+ 
+    	   ActivosFijosModel::create([
     		
-            'elemento_id'      =>$request['elemento_id'],
-            'anosUso'          =>$request['aniosUso'],
-            'vidaUtil'         =>$request['vidaUtil'],
-            'depreciacion'    =>$request['depreciacion'],
-            'descripcion'       =>$request['descripcion']
+            'elemento_id'     =>$data['codeElement'],
+            'anosUso'         =>$data['anosUso'],
+            'vidaUtil'        =>$data['vidaUtil'],
+            'depreciacion'    =>$data['depreciacion'],
+            'descripcion'     =>$data['descripcion'],
+            'cuenta'          =>$data['cuenta']
                        
-    	]);
-
-    	return redirect('/ActivosFijos')->with('mensaje','ingreso');
+    	    ]); //dateDepreciacion
+        InventarioModel::actualizarDepreciacion($resultado,$fechaDepreciacion, $idElemento); 
+          // actualizar fecha y valor depreciacion en inventario 
+        $ActivosFijos = ActivosFijosModel::all();     
+      return view('activosFijos.read',compact('ActivosFijos'));
+     
     }
 }

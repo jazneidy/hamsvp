@@ -26,6 +26,8 @@ class CreateInventariosTable extends Migration
             $table->foreign('elemento_id')->references('id')->on('elementos');
             $table->foreign('grupo_id')->references('id')->on('grupos');
             $table->foreign('dependencia_id')->references('id')->on('dependencias');
+            $table->double('valorDepreciasion',15,2);
+            $table->date_time('ultimaDepreciacion');
            
 
             

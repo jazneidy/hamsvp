@@ -28,7 +28,7 @@ class InventariosController extends Controller
 
     public function edit($id){
 
-        $entradas= InventarioModel::EntradasProductos($id);
+       /* $entradas= InventarioModel::EntradasProductos($id);
         $salidas = InventarioModel::SalidaProductos($id);
     
         $a = array();
@@ -46,10 +46,15 @@ class InventariosController extends Controller
         $detalles=EntradaInventarioModel::DetallesProductos($id);
         return view('inventario.detalle',['stocks'=>$stocks,'detalles'=>$detalles]);
       
+*/
+        $elementos=ElementoModel::lists('nombre','id');
+        $grupos=GrupoModel::lists('nombre','id');
+        $dependencias=DependenciaModel::lists('nombre','id');
 
-    	// $inventario= EntradaInventarioModel::find($id);
-        // $productos=ProductoModel::lists('nombre','id');
-    	// return view('inventario.edit',['productos'=>$productos,'inventario'=>$inventario]);
+    	 $inventario= InventarioModel::find($id);
+         
+    	 return view('inventario.edit',['inventario'=>$inventario,
+            'elementos'=>$elementos,'grupos'=>$grupos,'dependencias'=>$dependencias]);
     }
 
     public function create(){
@@ -62,21 +67,23 @@ class InventariosController extends Controller
 
 	public function destroy($id){
 
-    	EntradaInventarioModel::destroy($id);
+    	InventarioModel::destroy($id);
     	Session::flash('mensaje','Elimino');
-    	return Redirect::to('/inventario');
+    	return Redirect::to('/inventarios');
     }
 
     public function update($id,Request $request){
-    	$inventario= EntradaInventarioModel::find($id);
+    	$inventario= InventarioModel::find($id);
     	$inventario->fill($request->all());
     	$inventario->save();
     	Session::flash('mensaje','edito');
-    	return Redirect::to('/inventario');
+    	return Redirect::to('/inventarios');
     }
 
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
+
         if($request['donacion'] == 'Compra'){
             $donacion = 0;
         }
@@ -100,18 +107,18 @@ class InventariosController extends Controller
         }
 
         
-
     	InventarioModel::create([
     		'cantidad'         =>$request['cantidad'],
     		'operacion'        =>1,
     		'elemento_id'      =>$request['elemento_id'],
-            'grupo_id'      =>$request['grupo_id'],
-            'dependencia_id'      =>$request['dependencia_id'],
+            'grupo_id'         =>$request['grupo_id'],
+            'dependencia_id'   =>$request['dependencia_id'],
             'valorUnitario'    =>$request['valorUnitario'],
-            'valorTotal'        =>$request['valorTotal'],
-            'donacion'          =>$donacion,
-             'estado'           =>$estado
-            
+            'valorTotal'       =>$request['valorTotal'],
+            'donacion'         =>$donacion,
+            'estado'           =>$estado,
+            'valorDepreciasion'=> $request['valorUnitario'],
+            'ultimaDepreciacion'=>  date("Y-m-d H:i:s")
     	]);
 
     	return redirect('/inventarios')->with('mensaje','ingreso');

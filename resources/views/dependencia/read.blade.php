@@ -18,13 +18,13 @@
   <div class="ui breadcrumb">
     <a  href="{!!URL::to('/inicio')!!}" class="section">Inicio</a>
     <i class="right angle icon divider"></i>
-    <div class="active section">dependencias</div>
+    <div class="active section">Dependecias</div>
   </div>
 
   <div class="ui divider"></div>
   <h2 class="ui center aligned icon header">
     <i class="circular cubes icon"></i>
-    dependencias
+    Dependencias
   </h2>
   <div class="ui divider"></div>
 
@@ -34,10 +34,10 @@
   <thead>
     <tr>
       <th colspan="12">
-        Listado de dependencias
+        Listado de  Dependencias
         <a href="{!!URL::to('/dependencias/create')!!}">
         <div class="ui right floated small addCliente primary labeled icon button greenBoton">
-          <i class="cubes icon"></i>Crear dependencia
+          <i class="cubes icon"></i>Crear  Dependencias
         </div>
         </a>
 
@@ -47,7 +47,6 @@
       <th class="collapsing">Editar</th>
       <th>Nombre</th>
       <th>Descripcion</th>
-      
       <th class="collapsing">Eliminar</th>
     </tr>
   </thead>

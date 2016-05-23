@@ -1,10 +1,10 @@
-@if(Session::has('message-error'))
-	<div class="ui red floating icon message">
-      <i class="remove circle icon"></i>
-        <i class="close icon"></i>
-        <div class="header">
-          Error!.  
-        </div>
-        <div>&nbsp; {{Session::get('message-error')}}.</div>
-      </div>
+@if (count($errors)>0)
+  
+<div class="alert alert-danger alert-dismissible" role="alert ">
+<ul>
+@foreach ($errors -> all() as $error)
+  <li>{!!$error!!} </li> 
+@endforeach
+</ul>
+</div> 
 @endif

@@ -1,6 +1,7 @@
 @extends('layouts.principal')
 
 @section('content')
+@include('alerts.errors')
 
 <div class="ui breadcrumb">
     <a href="{!!URL::to('/inicio')!!}" class="section">Inicio</a>

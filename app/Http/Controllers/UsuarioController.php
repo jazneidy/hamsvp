@@ -1,10 +1,13 @@
 <?php
 
 namespace Deposito\Http\Controllers;
+use Deposito\Http\Requests\UserCreateRequest;
+use Deposito\Http\Requests\UserUpdateRequest;
+use Deposito\Http\Requests;
 use Session;
 use Redirect;
 use Illuminate\Http\Request;
-use Deposito\Http\Requests;
+
 use Deposito\User;
 
 class UsuarioController extends Controller
@@ -37,7 +40,7 @@ class UsuarioController extends Controller
     	Session::flash('mensaje','Elimino');
     	return Redirect::to('/usuario');
     }
-    public function update($id,Request $request){
+    public function update($id,UserUpdateRequest $request){
     	$usuario= User::find($id);
     	$usuario->fill($request->all());
     	$usuario->save();
@@ -46,11 +49,11 @@ class UsuarioController extends Controller
     }
 
 
-    public function store(Request $request){
+    public function store(UserCreateRequest $request){
     	User::create([
     		'name'  =>$request['name'],
     		'email'=>$request['email'],
-    		'password'=>bcrypt($request['password'])
+    		'password'=>$request['password']
     	]);
 
     	return redirect('/usuario')->with('mensaje','ingreso');

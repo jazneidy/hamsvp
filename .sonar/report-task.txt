@@ -1,0 +1,5 @@
+projectKey=hamsvp
+serverUrl=http://localhost:9000
+dashboardUrl=http://localhost:9000/dashboard/index/hamsvp
+ceTaskId=AVSdntAOJzVHy0WLSUA0
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AVSdntAOJzVHy0WLSUA0

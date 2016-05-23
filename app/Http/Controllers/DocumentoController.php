@@ -52,11 +52,7 @@ class DocumentoController extends Controller
                     'documento_id' =>$doc_id
 
                 ]);
-            }
-               
-             
- 
-             
+            } 
             return response()->json(['response' => $data ]); 
         } 
 
@@ -69,10 +65,8 @@ class DocumentoController extends Controller
     }
   
 
-    public function edit($id){
-        
-        $elemento= DocCuentaModel::all(); 
-        
+    public function edit($id){ 
+        $elemento= DocCuentaModel::all();  
         return view('documento.detalle',['elementos'=>$elemento]);
     }
 
@@ -82,6 +76,10 @@ class DocumentoController extends Controller
 
 	public function destroy($id){
 
+      DocumentoModel::destroy($id);
+      
+      Session::flash('mensaje','Elimino');
+      return Redirect::to('/listarDocumento');
     	 
     }
 

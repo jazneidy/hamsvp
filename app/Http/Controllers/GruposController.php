@@ -4,6 +4,8 @@ namespace Deposito\Http\Controllers;
 use Session;
 use Redirect;
 use Illuminate\Http\Request;
+use Deposito\Http\Requests\GrupoCreateRequest;
+use Deposito\Http\Requests\GrupoUpdateRequest;
 use Deposito\Http\Requests;
 use Deposito\GrupoModel;
 
@@ -53,7 +55,7 @@ class GruposController extends Controller
 	 *  @param request  variable encargada que permite el acceso a toda la información.
 	 *  @return views  vista principal
 	 */	
-    public function update($id,Request $request){
+    public function update($id,GrupoUpdateRequest $request){
     	$grupo= GrupoModel::find($id);
     	$grupo->fill($request->all());
     	$grupo->save();
@@ -65,7 +67,7 @@ class GruposController extends Controller
 	 *  @param equest  variable encargada que permite el acceso a toda la información.
 	 *  @return views  vista principal
 	 */
-    public function store(Request $request){
+    public function store(GrupoCreateRequest $request){
     	GrupoModel::create([
             'nombre'           =>$request['nombre'],
             'descripcion'      =>$request['descripcion']

@@ -3,28 +3,28 @@
 		</div>
 		<div class="ui divider"></div>
 		<div class="ui form">
-			  <div class="three fields">
+               <div class="three fields">
 					<div class="field">
 					    <label>Elemento</label>
 					    {!! Form::select('elemento_id',$elementos) !!}
 				  	</div>	
 				  		
 			  </div>
-			  <div class="three fields">
-					
-				  	<div class="field">
+				  	<div class="three fields">
+				  	  <div class="field">
 					    <label>Grupo</label>
 					    {!! Form::select('grupo_id',$grupos) !!}
 				  	</div>	
 				  		
 			  </div>
-			  <div class="three fields">
-					
-				  	<div class="field">
-					    <label>Dependencia</label>
+			  
+					<div class="three fields">
+					 <div class="field">
+				      <label>Dependencia</label>
 					    {!! Form::select('dependencia_id',$dependencias) !!}
-				  	</div>			
-			  </div>
+				  	</div>	
+			</div>		
+		</div>	  
 
 			   <div class="three fields">
 				    <div class="field">
@@ -58,7 +58,7 @@
 			  	</div>
 
 			 
-		</div>
+		
 	<script type="text/javascript">
 		
 	</script>

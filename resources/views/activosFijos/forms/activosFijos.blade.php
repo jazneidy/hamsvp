@@ -5,11 +5,25 @@
 		<div class="ui form">
 			  <div class="three fields">
 					<div class="field">
-					    <label>Elemento</label>
-					    {!! Form::select('elemento_id',$elementos) !!}
+					    <label>Elementos</label>
+					    <select id="element" name="codeElement" onchange="getDataItem(this)" > 
+						   @foreach ($inventario as $inv)
+						   <option value="{{ $inv->elementRef }}">{{ $inv->nombreElemento }}</option> 
+							@endforeach
+						</select>
+					   
 				  	</div>	
-				  		
-			 
+
+				<div class="three fields">
+				    <div class="field">
+					      <label>Codigo cuenta</label>
+						    <div class="ui corner labeled input">
+						      {!! Form::text('cuenta',null,['placeholder'=>'','id'=>'cuenta'] ) !!}
+						    </div>
+				    </div>
+			  	</div>
+
+
 			    <div class="three fields">
 				    <div class="field">
 					      <label>Años Uso</label>
@@ -43,6 +57,17 @@
 						    <div class="ui left icon corner labeled input">
 						    
 						     {!! Form::text('descripcion',null,['placeholder'=>'','id'=>'descripcion']) !!}
+						      
+						    </div>
+				    </div>
+			  	</div>
+
+			  	 <div class="three fields">
+				     <div class="field ">
+					      <label>fecha depreciacion</label>
+						    <div class="ui left icon corner labeled input">
+						    
+						     {!! Form::date('dateDepreciacion',null,['placeholder'=>'','id'=>'dateDepreciacion']) !!}
 						      
 						    </div>
 				    </div>

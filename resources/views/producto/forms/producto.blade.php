@@ -6,7 +6,7 @@
 		  <div class="three fields">
 		    <div class="field padding-right-campo">
 			      <label>Nombre</label>
-				    <div class="ui corner labeled input">
+				    <div class="ui corner labeled input" required>
 				      {!! Form::text('nombre',null,['placeholder'=>'Nombre','id'=>'nombre']) !!}
 				      <div class="ui obligatorio corner label">
 					  			<i class="asterisk icon"></i>
@@ -18,7 +18,7 @@
 		  <div class="three fields">
 		    <div class="field padding-right-campo">
 			      <label>Precio Compra</label>
-				    <div class="ui left icon corner labeled input">
+				    <div class="ui left icon corner labeled input" required>
 				    <i class="dollar icon"></i>
 				     {!! Form::text('preciocompra',null,['placeholder'=>'9.999','id'=>'compra']) !!}
 				      <div class="ui obligatorio corner label">

@@ -1,5 +1,5 @@
 
-<div class="ui modal modal{{$elemento->id}}">
+<div class="ui modal modal{{$ActivosFijos->id}}">
   
   <div class="header">
     Eliminacion 
@@ -12,7 +12,7 @@
   <div class="actions">
     <!-- <div class="ui positive approve button aceptarEliminar">Aceptar</div> -->
 
-    {!! Form::open(['route'=>['elementos.destroy',$elemento->id],'method'=>'DELETE']) !!}
+    {!! Form::open(['route'=>['activosFijos.destroy',$ActivosFijos->id],'method'=>'DELETE']) !!}
 		<button type="submit" class="ui positive approve button eliminar" >Aceptar</button>
     {!! Form::close() !!}
     <div class="ui negative cancel button cancelarEliminar">Cancelar</div>
